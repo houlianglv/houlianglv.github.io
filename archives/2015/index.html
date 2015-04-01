@@ -69,7 +69,7 @@
   
   <div id="header-sub" class="header-sub header-inner">
     <div class="outer">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
   
@@ -86,11 +86,11 @@
   	</div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        1
-        <span>post</span>
+        2
+        <span>posts</span>
       </div>
       <div class="article-info-block">
-        2
+        5
         <span>tags</span>
       </div>
     </div>
@@ -167,10 +167,76 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://houlianglv.github.io/2015/03/31/hello-world/" data-id="ci7x3zy7h0000fonrpxpsq6oy" class="article-share-link">Share</a>
+      <a data-url="http://houlianglv.github.io/2015/03/31/hello-world/" data-id="ci7ykqnhu0000msnrp1z9vcy0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tutorial/">Tutorial</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    
+    
+    <article id="post-algorithm-stanford-week4-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/01/algorithm-stanford-week4-1/">Algorithm-Stanford-Week4</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/2015/02/01/algorithm-stanford-week4-1/">
+    <time datetime="2015-02-01T09:41:04.000Z" itemprop="datePublished">Feb 1 2015</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>BFS breadth-first search:<br>    core concepts : layer and queue</p>
+<p>application : shortest path</p>
+<p>DFS deepth-first search<br>    core concepts: stack.</p>
+<p>explore aggressively, only trackback when necessary.<br>— also computes a topological ordering of a directed xxx graph.<br>— and strongly connected components of directed graphs.</p>
+<p>application : Topological sort<br>tips: after recursive, the statement N—  is the magic key.</p>
+<p>SCC：</p>
+<p>SCC analysis:<br>observation:<br>—meta-node: SCC</p>
+<p>—induce the original </p>
+<p>SCC meas strongly connected component. In an SCC, you can start from any node and get to any other nodes you want. </p>
+<p>How to find SCCs in a graph? lecturer gave a solution called Karasu… Algorithm.</p>
+<p>the solution contains 3 steps.<br>first : reverse the Graph entirely.<br>second: run DFS loop on the reversed Graph in an arbitary order.<br>third: run DFS loop on the original Graph in the order of finishing times, in descending order.</p>
+<p>what is the finnishing time? For example, when the node cannot call DFS recursively, the node is finished, which means that all nodes near it have been explored. Then we assign a “finishing time” to this node. (from 1 to N).</p>
+<p>then we would get an order to make the second pass on the orignal Graph.</p>
+<p>so why this solution gonna work?<br>proof:  the SCC could be seen as a “meta-node”. because all nodes in a SCC are connected to eachother. so if there is an arc which connect a SCC node to other component’s node, the other nodes in this SCC are also connected to the outer node.<br>so if we abstract the SCC as a single node, we convert the original Graph to a new acyclic graph. It is easy to prove that. If we still have a circle in the Graph, then these SCC(meta-node) are actually in one SCC. That is a contradiction.</p>
+<p>now, we reverse the new meta-Graph and we run DFS loop on it. We could expect that, wherever we start the search loop. for example, we have a meta-graph like the one in below picture.</p>
+<img src="/2015/02/01/algorithm-stanford-week4-1/scc-example-image.png">
+<p>where f1, f2, f3, f4 means the max finish time in the SCC(meta-node), respectively. We could expecte that wherever we start, the f4 would be smaller than f2 and f3, the f1 would be the biggest, f2 could be bigger or smaller than f3, depending on where we start the loop. Why? Because the “sink” meta-node(C4) would finsh the recursive first, then C2 or C3 and C1 is the last. That is determined by the recursive call order, which is FILO(call stack !!).  </p>
+<p>Now, let’s start our final step to get what we want, SCCs. We start DFS loop in original Graph, from the biggest “finish time” to 1.<br>As we can see, in the orignal Graph, the C1, could only be a sink node! So we start from here, and in one iteration, we would never go out of the SCC, because it is a “sink” meta-node. Similarly, we would then find out C2, C3 and C4.  QED.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://houlianglv.github.io/2015/02/01/algorithm-stanford-week4-1/" data-id="ci7ykqni80007msnrn0hh3z1f" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coursera/">coursera</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-structure/">data structure</a></li></ul>
 
     </footer>
   </div>
@@ -205,6 +271,22 @@
             </div>
           </li>
         
+          <li>
+            <div class="item-thumbnail">
+              <a href="/2015/02/01/algorithm-stanford-week4-1/" class="thumbnail">
+  
+    <span style="background-image:url(/2015/02/01/algorithm-stanford-week4-1/scc-example-image.png
+)" alt="Algorithm-Stanford-Week4" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a></p>
+              <p class="item-title"><a href="/2015/02/01/algorithm-stanford-week4-1/" class="title">Algorithm-Stanford-Week4</a></p>
+              <p class="item-date"><time datetime="2015-02-01T09:41:04.000Z" itemprop="datePublished">Feb 1 2015</time></p>
+            </div>
+          </li>
+        
       </ul>
     </div>
   </div>
@@ -214,7 +296,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -223,7 +305,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tutorial/">Tutorial</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tutorial/">Tutorial</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/coursera/">coursera</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/">data structure</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -232,7 +314,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">tag cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Hexo/" style="font-size: NaNpx;">Hexo</a><a href="/tags/Tutorial/" style="font-size: NaNpx;">Tutorial</a>
+      <a href="/tags/Hexo/" style="font-size: NaNpx;">Hexo</a><a href="/tags/Tutorial/" style="font-size: NaNpx;">Tutorial</a><a href="/tags/algorithm/" style="font-size: NaNpx;">algorithm</a><a href="/tags/coursera/" style="font-size: NaNpx;">coursera</a><a href="/tags/data-structure/" style="font-size: NaNpx;">data structure</a>
     </div>
   </div>
 
@@ -241,7 +323,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 

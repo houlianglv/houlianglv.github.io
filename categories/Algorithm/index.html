@@ -8,7 +8,7 @@
   <meta name="description" content="a software developer with great passion in Computer Science and Data Science.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Houliang | Coding and Learning">
-<meta property="og:url" content="http://houlianglv.github.io/archives/2015/03/index.html">
+<meta property="og:url" content="http://houlianglv.github.io/categories/Algorithm/index.html">
 <meta property="og:site_name" content="Houliang | Coding and Learning">
 <meta property="og:description" content="a software developer with great passion in Computer Science and Data Science.">
 <meta name="twitter:card" content="summary">
@@ -124,7 +124,7 @@
           <a href="/archives/2015" class="archive-year">2015</a>
         </div>
     
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-algorithm-stanford-week4-1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -132,21 +132,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/31/hello-world/">Hello World</a>
+      <a class="article-title" href="/2015/02/01/algorithm-stanford-week4-1/">Algorithm-Stanford-Week4</a>
     </h1>
   
 
         <div class="article-meta">
           <div class="article-date">
   <i class="fa fa-calendar"></i>
-  <a href="/2015/03/31/hello-world/">
-    <time datetime="2015-03-31T09:07:54.000Z" itemprop="datePublished">Mar 31 2015</time>
+  <a href="/2015/02/01/algorithm-stanford-week4-1/">
+    <time datetime="2015-02-01T09:41:04.000Z" itemprop="datePublished">Feb 1 2015</time>
   </a>
 </div>
           
   <div class="article-category">
   	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
+    <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
   </div>
 
         </div>
@@ -154,23 +154,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>BFS breadth-first search:<br>    core concepts : layer and queue</p>
+<p>application : shortest path</p>
+<p>DFS deepth-first search<br>    core concepts: stack.</p>
+<p>explore aggressively, only trackback when necessary.<br>— also computes a topological ordering of a directed xxx graph.<br>— and strongly connected components of directed graphs.</p>
+<p>application : Topological sort<br>tips: after recursive, the statement N—  is the magic key.</p>
+<p>SCC：</p>
+<p>SCC analysis:<br>observation:<br>—meta-node: SCC</p>
+<p>—induce the original </p>
+<p>SCC meas strongly connected component. In an SCC, you can start from any node and get to any other nodes you want. </p>
+<p>How to find SCCs in a graph? lecturer gave a solution called Karasu… Algorithm.</p>
+<p>the solution contains 3 steps.<br>first : reverse the Graph entirely.<br>second: run DFS loop on the reversed Graph in an arbitary order.<br>third: run DFS loop on the original Graph in the order of finishing times, in descending order.</p>
+<p>what is the finnishing time? For example, when the node cannot call DFS recursively, the node is finished, which means that all nodes near it have been explored. Then we assign a “finishing time” to this node. (from 1 to N).</p>
+<p>then we would get an order to make the second pass on the orignal Graph.</p>
+<p>so why this solution gonna work?<br>proof:  the SCC could be seen as a “meta-node”. because all nodes in a SCC are connected to eachother. so if there is an arc which connect a SCC node to other component’s node, the other nodes in this SCC are also connected to the outer node.<br>so if we abstract the SCC as a single node, we convert the original Graph to a new acyclic graph. It is easy to prove that. If we still have a circle in the Graph, then these SCC(meta-node) are actually in one SCC. That is a contradiction.</p>
+<p>now, we reverse the new meta-Graph and we run DFS loop on it. We could expect that, wherever we start the search loop. for example, we have a meta-graph like the one in below picture.</p>
+<img src="/2015/02/01/algorithm-stanford-week4-1/scc-example-image.png">
+<p>where f1, f2, f3, f4 means the max finish time in the SCC(meta-node), respectively. We could expecte that wherever we start, the f4 would be smaller than f2 and f3, the f1 would be the biggest, f2 could be bigger or smaller than f3, depending on where we start the loop. Why? Because the “sink” meta-node(C4) would finsh the recursive first, then C2 or C3 and C1 is the last. That is determined by the recursive call order, which is FILO(call stack !!).  </p>
+<p>Now, let’s start our final step to get what we want, SCCs. We start DFS loop in original Graph, from the biggest “finish time” to 1.<br>As we can see, in the orignal Graph, the C1, could only be a sink node! So we start from here, and in one iteration, we would never go out of the SCC, because it is a “sink” meta-node. Similarly, we would then find out C2, C3 and C4.  QED.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://houlianglv.github.io/2015/03/31/hello-world/" data-id="ci7ykqnhu0000msnrp1z9vcy0" class="article-share-link">Share</a>
+      <a data-url="http://houlianglv.github.io/2015/02/01/algorithm-stanford-week4-1/" data-id="ci7ykqni80007msnrn0hh3z1f" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tutorial/">Tutorial</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coursera/">coursera</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-structure/">data structure</a></li></ul>
 
     </footer>
   </div>
