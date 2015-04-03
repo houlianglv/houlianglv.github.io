@@ -69,7 +69,7 @@
   
   <div id="header-sub" class="header-sub header-inner">
     <div class="outer">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
   
@@ -86,11 +86,11 @@
   	</div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        3
+        4
         <span>posts</span>
       </div>
       <div class="article-info-block">
-        8
+        12
         <span>tags</span>
       </div>
     </div>
@@ -176,7 +176,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://houlianglv.github.io/2015/02/01/algorithm-stanford-week4-1/" data-id="ci7zjlq76000g24nrh8aibwv6" class="article-share-link">Share</a>
+      <a data-url="http://houlianglv.github.io/2015/02/01/algorithm-stanford-week4-1/" data-id="ci81aiszf000sc8nrcw07sgj6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coursera/">coursera</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-structure/">data structure</a></li></ul>
@@ -249,10 +249,114 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://houlianglv.github.io/2014/12/02/intro-to-random-forest/" data-id="ci7zjlq6p000024nrglnubsm8" class="article-share-link">Share</a>
+      <a data-url="http://houlianglv.github.io/2014/12/02/intro-to-random-forest/" data-id="ci81aisys0000c8nrj8dle3zr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/">Algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kaggle/">Kaggle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    
+    
+    <article id="post-decision-tree-tutorial" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/03/decision-tree-tutorial/">Decision Trees I</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/2014/11/03/decision-tree-tutorial/">
+    <time datetime="2014-11-03T03:05:30.000Z" itemprop="datePublished">Nov 3 2014</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="What_is_Classification?">What is Classification?</h2><ol>
+<li><p>A major data mining operation.</p>
+</li>
+<li><p>Give one attribute of the data sample, try to predict the value of other attributes(or features)by means of some of the other available attributes. </p>
+<p>Here are two types of categorical attribute:</p>
+<p>• Categorical attribute: an attribute which takes on two or more discrete values. Also known as a symbolic attribute.</p>
+<p>• Real attribute: a column of real numbers</p>
+</li>
+<li><p>Applies to categorical outputs.</p>
+</li>
+</ol>
+<h2 id="Contingency_Tables">Contingency Tables</h2><p>We all know histogram. We can use histogram to have a straight intuition about our dataset. But a better name for histogram is<br>“A  One-dimensional Contingency Table”</p>
+<p>Recipe for making a k-dimensional contingency table:</p>
+<ol>
+<li><p>Pick k attributes from your dataset. Call them a1,a2,… ak.</p>
+</li>
+<li><p>For every possible combination of values, a1’=x1’, a2’=x2’… ak’=xk’,record how frequently that combination occurs.<br>Fun fact: A database person would call this a “k-dimensional datacube”</p>
+</li>
+</ol>
+<h2 id="On-Line_Analytical_Processing_(OLAP)">On-Line Analytical Processing (OLAP)</h2><p>• Software packages and database add-ons to do this are known as OLAP tools</p>
+<p>• They usually include point and click navigation to view slices and aggregates of contingency tables</p>
+<p>• They usually include nice histogram visualization</p>
+<h2 id="Data_Mining">Data Mining</h2><p>• Data Mining is all about automating the process of searching for patterns in the data.</p>
+<h3 id="Which_patterns_are_interesting?">Which patterns are interesting?</h3><p>Deciding whether a pattern is interesting</p>
+<p>• We will use Information Theory</p>
+<p>• A very large topic, originally used for compressing signals</p>
+<p>• But more recently used for data mining…</p>
+<h2 id="Learning_Decision_Tress">Learning Decision Tress</h2><p>• A Decision Tree is a tree-structured plan of a set of attributes to test in order to predict the output.</p>
+<p>• To decide which attribute should be tested first, simply find the one with the highest information gain.</p>
+<p>• Then recurse…</p>
+<h3 id="Recursion_Step">Recursion Step</h3><p>Take the Original DatasetAnd partition it according to the value of the attribute we split on</p>
+<h3 id="Base_Cases">Base Cases</h3><p>• Base Case One: If all records in current data subset have the same output then don’t recurse</p>
+<p>• Base Case Two: If all records have exactly the same set of input attributes then don’t recurse</p>
+<p>Perhaps we think that there is a Base Case 3: If all attributes have zero information gain then don’t recurse. Is it a good idea?</p>
+<h3 id="The_Problem_with_Base_Case_3">The Problem with Base Case 3</h3><p>A simple example to disprove this propose is X OR Y = Z</p>
+<h2 id="Basic_Decision_Tree_Building_Summarized">Basic Decision Tree Building Summarized</h2><p>Pseudo Code:</p>
+<pre><code><span class="type">BuildTree</span>(<span class="type">DataSet</span>,<span class="type">Output</span>)
+    <span class="type">If</span> all output values are the same <span class="keyword">in</span> <span class="type">DataSet</span>
+        <span class="keyword">return</span> a leaf node that says “predict this unique output”
+    <span class="type">If</span> all input values are the same
+        <span class="keyword">return</span> a leaf node that says “predict the majority output”
+    <span class="type">Else</span> 
+        <span class="type">Find</span> attribute X <span class="keyword">with</span> highest <span class="type">Info</span> <span class="type">Gain</span> <span class="type">Suppose</span> X has nX <span class="keyword">distinct</span> values (i.e. X has arity nX).
+        <span class="type">For</span> i’th child tree should be built by calling
+            <span class="type">BuildTree</span>(<span class="type">DSi</span>,<span class="type">Output</span>) 
+            <span class="type">Where</span> <span class="type">DSi</span> built consists <span class="keyword">of</span> all those records <span class="keyword">in</span> <span class="type">DataSet</span> <span class="keyword">for</span> which X = ith <span class="keyword">distinct</span> value <span class="keyword">of</span> X.
+</code></pre><h2 id="Training_Set_Error">Training Set Error</h2><p>• For each record, follow the decision tree to see what it would predict<br>     For what number of records does the decision tree’s prediction disagree with the true value in the database?</p>
+<p>• This quantity is called the training set error. The smaller the better.</p>
+<h3 id="Why_are_we_doing_this_learning_anyway?">Why are we doing this learning anyway?</h3><p>• It is not usually in order to predict the training data’s output on data we have already seen.</p>
+<p>• It is more commonly in order to predict the output value for future data we have not yet seen.</p>
+<p> Warning: A common data mining misperception is that the above two bullets are the only possible reasons for learning. There are at least a dozen others.</p>
+<h2 id="Test_Set_Error">Test Set Error</h2><p>• Suppose we are forward thinking.</p>
+<p>• We hide some data away when we learn the decision tree.</p>
+<p>• But once learned, we see how well the tree predicts that data.</p>
+<p>• This is a good simulation of what happens when we try to predict future data.</p>
+<p>• And it is called Test Set Error.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://houlianglv.github.io/2014/11/03/decision-tree-tutorial/" data-id="ci81aiszb000gc8nrv8zgop45" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/classification/">classification</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/decision-trees/">decision trees</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/information-gain/">information gain</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/machine-learning/">machine learning</a></li></ul>
 
     </footer>
   </div>
@@ -306,7 +410,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://houlianglv.github.io/2014/08/02/hello-world/" data-id="ci7zjlq73000924nryww99qmq" class="article-share-link">Share</a>
+      <a data-url="http://houlianglv.github.io/2014/08/02/hello-world/" data-id="ci81aisz70009c8nr475c5yst" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tutorial/">Tutorial</a></li></ul>
@@ -363,6 +467,21 @@
         
           <li>
             <div class="item-thumbnail">
+              <a href="/2014/11/03/decision-tree-tutorial/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a></p>
+              <p class="item-title"><a href="/2014/11/03/decision-tree-tutorial/" class="title">Decision Trees I</a></p>
+              <p class="item-date"><time datetime="2014-11-03T03:05:30.000Z" itemprop="datePublished">Nov 3 2014</time></p>
+            </div>
+          </li>
+        
+          <li>
+            <div class="item-thumbnail">
               <a href="/2014/08/02/hello-world/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
@@ -385,7 +504,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -394,7 +513,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kaggle/">Kaggle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tutorial/">Tutorial</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/coursera/">coursera</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/">data structure</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kaggle/">Kaggle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tutorial/">Tutorial</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/classification/">classification</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/coursera/">coursera</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/">data structure</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/decision-trees/">decision trees</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/information-gain/">information gain</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">machine learning</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -403,7 +522,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">tag cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: NaNpx;">Algorithm</a><a href="/tags/Hexo/" style="font-size: NaNpx;">Hexo</a><a href="/tags/Kaggle/" style="font-size: NaNpx;">Kaggle</a><a href="/tags/Machine-Learning/" style="font-size: NaNpx;">Machine Learning</a><a href="/tags/Tutorial/" style="font-size: NaNpx;">Tutorial</a><a href="/tags/algorithm/" style="font-size: NaNpx;">algorithm</a><a href="/tags/coursera/" style="font-size: NaNpx;">coursera</a><a href="/tags/data-structure/" style="font-size: NaNpx;">data structure</a>
+      <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a><a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a><a href="/tags/Kaggle/" style="font-size: 10px;">Kaggle</a><a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a><a href="/tags/Tutorial/" style="font-size: 10px;">Tutorial</a><a href="/tags/algorithm/" style="font-size: 20px;">algorithm</a><a href="/tags/classification/" style="font-size: 10px;">classification</a><a href="/tags/coursera/" style="font-size: 10px;">coursera</a><a href="/tags/data-structure/" style="font-size: 10px;">data structure</a><a href="/tags/decision-trees/" style="font-size: 10px;">decision trees</a><a href="/tags/information-gain/" style="font-size: 10px;">information gain</a><a href="/tags/machine-learning/" style="font-size: 10px;">machine learning</a>
     </div>
   </div>
 
@@ -412,7 +531,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
