@@ -1,0 +1,26 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#snap{
+  display: block;
+  width: 100px;
+  height: 50px;
+  background: blue;
+  color: whitesmoke;
+  margin-left: 20px;
+  line-height: 50px;
+  border-radius: 10px;
+}
+
+#video{
+  padding: 20px;
+  display: block;
+}
+
+#canvas{
+  padding: 20px;
+  display: block;
+}
