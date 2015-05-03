@@ -1,0 +1,31 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  font-size: 15px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.outer{
+  margin: auto;
+  margin-top: 100px;
+}
+
+.scroll-panel:focus{
+  outline: none;
+}
+
+.change-size{
+  margin: auto;
+}
+
+.change-height{
+  margin: 10px;
+}
+
+.change-width{
+  margin: 10px;
+}
