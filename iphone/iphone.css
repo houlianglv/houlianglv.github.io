@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #34abfa;
+  padding-top: 5%;
+  font-size: 5px;
+  font-family: 'Open Sans', sans-serif;
+  height: 2000px;
+}
+
+
+
+.wrapper{
+  max-width: 800px;
+  margin: auto;
+}
+
+.iphone {
+  position: relative;
+  background: whitesmoke;
+  width: 234.4px;
+  height: 495.2px;
+  margin: 0 auto;
+  border-radius: 30px;
+  border: solid 3px #EAEAEA;
+}
+
+.power {
+  position: absolute;
+  height: 2px;
+  width: 15%;
+  background-color: white;
+  top: -5px;
+  right: 15%;
+}
+
+.mute {
+  position: absolute;
+  height: 20px;
+  width: 3px;
+  background: white;
+  left: -6px;
+  top: 62px;
+}
+
+.volup {
+  position: absolute;
+  width: 3px;
+  height: 15px;
+  background: white;
+  left: -6px;
+  top: 105px;
+}
+
+.voldown {
+  position: absolute;
+  width: 3px;
+  height: 15px;
+  background: white;
+  left: -6px;
+  top: 140px;
+}
+
+.body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: whitesmoke;
+  border: solid 1px #dddddd;
+  border-radius: 26px;
+
+}
+
+.cam {
+  position: absolute;
+  background: black;
+  height: 10px;
+  top: 10px;
+  left: 112.2px;
+  width: 10px;
+  border: solid 2px grey;
+  border-radius: 5px;
+
+}
+
+.mic {
+  position: absolute;
+  background: black;
+  height: 4px;
+  top: 30px;
+  left: 97.2px;
+  width: 40px;
+  border-radius: 3px;
+
+}
+
+.circle {
+  position: absolute;
+  background: black;
+  height: 4px;
+  top: 30px;
+  left: 90px;
+  width: 4px;
+  border-radius: 3px;
+
+}
+
+.screen {
+  position: absolute;
+  background-color: #2f2f2f;
+  height: 362.81px;
+  width: 204.4px;
+  left: 11px;
+  top: 60px;
+  border: solid 1px grey;
+  border-radius: 3px;
+  -webkit-animation-name: lighten; /* Chrome, Safari, Opera */
+  -webkit-animation-duration: 3s; /* Chrome, Safari, Opera */
+  -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+  animation-name: lighten;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes lighten {
+    from {background-color: #2f2f2f;}
+    to {background-color: whitesmoke;}
+}
+
+/* Standard syntax */
+@keyframes lighten {
+    from {background-color: #2f2f2f;}
+    to {background-color: whitesmoke;}
+}
+
+.home {
+  background: white;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  bottom: 10px;
+  left: 95px;
+  border-radius: 20px;
+  border: solid 3px grey;
+
+}
+
+.logo {
+  position: absolute;
+  height: 50px;
+  left: 82px;
+  top: 130px;
+}
+
+h1{
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 50px;
+  color: rgb(118, 218, 255);
+}
